@@ -1,7 +1,9 @@
 ---
 import "../styles/style.css"
 import Navigation from "../components/Navigation.astro"
-const title = "About Page"
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const pageTitle = "About Page"
 const identity = {
   name: "Ali",
   country: "Azerbaijan",
@@ -17,54 +19,47 @@ const skillColor = "purple"
 const fontWeight = "bold"
 const textCase = "uppercase"
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
-      h1 {
-        background-color: green;
-        /* font-size: 10rem; */
-      }
-      .skill {
-        /* background-color: black; */
-        color: var(--skillColor);
-        font-weight: var(--font-weight);
-        text-transform: var(--fontWeight)
-      }
-    </style>
-	</head>
-	<body>
-    <Navigation />
-    <h1>{title}</h1>
-    { identity.hobbies.length > 3 && 
-      <h3>You have a lot of hobbies</h3>
-    }
 
-    { skills.map(skill => (
-      <li class="skill">{skill}</li>
-    ))}
+<BaseLayout pageTitle={ pageTitle }>
+  <Navigation />
+  <h1>{ pageTitle }</h1>
+  { identity.hobbies.length > 3 && 
+    <h3>You have a lot of hobbies</h3>
+  }
 
-    {
-      happy && (
-        <h4>Hooray I am happy</h4>
-      )
-    }
-    {
-      finished && (
-        <h4>Finished</h4>
-      )
-    }
-    {
-      goal === 3 ? (
-        <h4>goals are 3</h4>
-      ) : (
-        <h4>Goals are not 3</h4>
-      )
-    }
-	</body>
-</html>
+  { skills.map(skill => (
+    <li class="skill">{skill}</li>
+  ))}
 
+  {
+    happy && (
+      <h4>Hooray I am happy</h4>
+    )
+  }
+  {
+    finished && (
+      <h4>Finished</h4>
+    )
+  }
+  {
+    goal === 3 ? (
+      <h4>goals are 3</h4>
+    ) : (
+      <h4>Goals are not 3</h4>
+    )
+  }
+</BaseLayout>
+
+
+<style define:vars={{skillColor, fontWeight, textCase}}>
+  h1 {
+    background-color: green;
+    /* font-size: 10rem; */
+  }
+  .skill {
+    /* background-color: black; */
+    color: var(--skillColor);
+    font-weight: var(--font-weight);
+    text-transform: var(--fontWeight)
+  }
+</style>
