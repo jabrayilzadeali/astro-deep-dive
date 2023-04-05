@@ -1,6 +1,8 @@
 ---
 import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
+
+const {title} = Astro.props;
 ---
 
 <header>
@@ -8,5 +10,8 @@ import Hamburger from "./Hamburger.astro";
         <Hamburger />
         <Navigation />
     </nav>
+    <div class="page-header text-center">
+        {title}
+    </div>
 </header>
 

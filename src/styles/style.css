@@ -34,6 +34,15 @@ li {
   display: flex;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
 /* nav styles */
 .hamburger {
   padding-right: 20px;
@@ -46,6 +55,17 @@ li {
   height: 5px;
   margin-bottom: 10px;
   background-color: #ff9776;
+}
+
+/* nav {
+  background-color: red;
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: column; */
 }
 
 .nav-links {
@@ -75,10 +95,21 @@ li {
   display: unset;
 }
 
+@media screen and (max-width: 636px) {
+  .page-header {
+    align-self: start;
+  }
+}
+
 @media screen and (min-width: 636px) {
+  header {
+    flex-direction: column;
+  }
   .nav-links {
-    margin-left: 5em;
-    display: block;
+    /* margin-left: 5em; */
+    /* display: block; */
+    display: flex;
+    justify-content: center;
     position: static;
     width: auto;
     background: none;

@@ -4,5 +4,13 @@ const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My Awesome blog subtitle</h2>
+	<h2>My Awesome blog <span>subtitle</span></h2>
 </BaseLayout>
+
+<style>
+	h2 {
+		& span {
+			background-color: red;
+		}
+	}
+</style>
